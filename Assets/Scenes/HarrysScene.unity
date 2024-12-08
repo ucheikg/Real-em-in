@@ -2668,11 +2668,7 @@ MonoBehaviour:
   - {fileID: 1297601424}
   playerName: 
   playerHighestWeightFish: 0
-  Inventory:
-  - {fileID: 11400000, guid: 7bb8d4298a12e204591e22ea37e75a90, type: 2}
-  - {fileID: 11400000, guid: db68189b08ea08847a1bd627f2699101, type: 2}
-  - {fileID: 11400000, guid: ecee807798fa99d4fa1a59ec978579c4, type: 2}
-  - {fileID: 11400000, guid: ac1d62305d7cd83448b253bb5c61f865, type: 2}
+  Inventory: []
 --- !u!4 &1383806551
 Transform:
   m_ObjectHideFlags: 0

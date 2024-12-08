@@ -17,35 +17,37 @@ public class GameSettings : MonoBehaviour
             SetPlayerName(PlayerPrefs.GetString("PlayerName"));
         }
 
-        Debug.Log("Inventory Before");
+        string print = string.Empty;
+        print = "Inventory Before";
         foreach(Item i in Inventory)
         {
-            Debug.Log(i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString());
+            print = print+"\n"+i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
+        Debug.Log(print);
 
         SortInventoryByName();
-
-        Debug.Log("Inventory After Sort By Name");
+        print = "Inventory After Sort By Name";
         foreach (Item i in Inventory)
         {
-            Debug.Log(i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString());
+            print = print + "\n" + i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
+        Debug.Log(print);
 
         SortInventoryByWeight();
-
-        Debug.Log("Inventory After Sort By Weight");
+        print = "Inventory After Sort By Weight";
         foreach (Item i in Inventory)
         {
-            Debug.Log(i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString());
+            print = print + "\n" + i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
+        Debug.Log(print);
 
         SortInventoryByRarity();
-
-        Debug.Log("Inventory After Sort By Rarity");
+        print = "Inventory After Sort By Rarity";
         foreach (Item i in Inventory)
         {
-            Debug.Log(i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString());
+            print = print + "\n" + i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
+        Debug.Log(print);
     }
 
 

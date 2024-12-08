@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f14afccfd6f4994da95eb156a6507c5, type: 3}
-  m_Name: Tuna
+  m_Name: Bluegill Sunfish
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
-  ItemName: Tuna
-  minMaxWeight: {x: 0, y: 1}
-  weight: 5
-  rarity: 1
-  Chance: 0
+  ItemName: Bluegill Sunfish
+  minMaxWeight: {x: 0.1, y: 0.5}
+  weight: 0
+  rarity: 0
+  Chance: 60
