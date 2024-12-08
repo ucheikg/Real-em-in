@@ -90,12 +90,12 @@ public class GameSettings : MonoBehaviour
 
     [SerializeField] private float playerHighestWeightFish = 0.0f; public float GetPlayerHightWeightFish() { return playerHighestWeightFish; }
                                                                  public void SetPlayerHightWeightFish(float weight) { playerHighestWeightFish = weight; }
-
-    [SerializeField] private List<Item> Inventory = new List<Item>();
     #endregion
 
 
     #region Inventory
+
+    [SerializeField] private List<Item> Inventory = new List<Item>();
 
     public void InventoryAddItem(Item item)
     {
