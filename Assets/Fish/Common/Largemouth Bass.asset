@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: Largemouth Bass
   minMaxWeight: {x: 0.5, y: 5}
   weight: 0
-  rarity: 0
+  rarity: 1
   Chance: 40

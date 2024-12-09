@@ -25,7 +25,7 @@ public class Item : ScriptableObject
     {
         weight = Random.Range(minMaxWeight.x, minMaxWeight.y);
 
-        miniGameDifficulty = minMaxWeight.y / weight;
+        miniGameDifficulty = minMaxWeight.y / weight * (int) rarity;
         
         switch (rarity)
         {
@@ -53,10 +53,10 @@ public class Item : ScriptableObject
 
 public enum Rarity
 {
-    Common = 0,
-    Uncommon = 1,
-    Rare = 2,
-    Epic = 3,
-    Legendary = 4,
-    Mythical = 5
+    Common = 1,
+    Uncommon = 2,
+    Rare = 3,
+    Epic = 4,
+    Legendary = 5,
+    Mythical = 6
 }

@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: Channel Catfish
   minMaxWeight: {x: 1.5, y: 10}
   weight: 0
-  rarity: 1
+  rarity: 2
   Chance: 20

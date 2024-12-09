@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: Northern Pike
   minMaxWeight: {x: 1, y: 10}
   weight: 0
-  rarity: 0
+  rarity: 1
   Chance: 40

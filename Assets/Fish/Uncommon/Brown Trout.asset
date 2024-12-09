@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: Brown Trout
   minMaxWeight: {x: 0.6, y: 6}
   weight: 0
-  rarity: 1
+  rarity: 2
   Chance: 25

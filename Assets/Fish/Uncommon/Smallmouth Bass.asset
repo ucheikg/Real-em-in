@@ -16,5 +16,5 @@ MonoBehaviour:
   ItemName: Smallmouth Bass
   minMaxWeight: {x: 0.4, y: 4}
   weight: 0
-  rarity: 1
+  rarity: 2
   Chance: 35
