@@ -16,6 +16,10 @@ public class GameSettings : MonoBehaviour
         {
             SetPlayerName(PlayerPrefs.GetString("PlayerName"));
         }
+        else
+        {
+
+        }
 
         string print = string.Empty;
         print = "Inventory Before";
