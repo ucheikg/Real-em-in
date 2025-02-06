@@ -20,7 +20,9 @@ public class StartButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(Device)
+        CheckDevice();
+
+        switch (Device)
         {
             case Devices.Keyboard:
                 tmp.text = "press enter to continue...";
@@ -40,7 +42,7 @@ public class StartButton : MonoBehaviour
     IEnumerator loadNameSelectScene()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("NameSelect");
+        SceneManager.LoadScene("Game_Scene");
     }
 
 

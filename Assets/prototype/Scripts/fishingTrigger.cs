@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class fishingTrigger : MonoBehaviour
 {
     public GameObject minigame;
+
+    [SerializeField] private GameplaySettings gpSettings;
     void Start()
     {
         minigame.SetActive(false);
@@ -17,6 +19,7 @@ public class fishingTrigger : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             minigame.SetActive(true);
+            gpSettings.fishBitesLine();
         }
     }
 }
