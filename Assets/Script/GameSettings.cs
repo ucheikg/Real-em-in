@@ -7,6 +7,7 @@ using Dan.Models;
 
 public class GameSettings : MonoBehaviour
 {
+
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
@@ -16,11 +17,12 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
 
-        if(PlayerPrefs.GetString("PlayerName") != null)
+        /*if(PlayerPrefs.GetString("PlayerName") != null)
         {
             SetPlayerName(PlayerPrefs.GetString("PlayerName"));
-        }
+        }*/
 
+        #region Testing
         string print = string.Empty;
         print = "Inventory Before";
         foreach(Item i in Inventory)
@@ -52,6 +54,7 @@ public class GameSettings : MonoBehaviour
             print = print + "\n" + i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
         Debug.Log(print);
+        #endregion
     }
 
 
@@ -61,8 +64,12 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private string playerName = string.Empty; public string GetPlayerName() { return playerName; }
                                                                public void SetPlayerName(string name) {  playerName = name; }
 
-    [SerializeField] private float playerHighestWeightFish = 0.0f; public float GetPlayerHightWeightFish() { return playerHighestWeightFish; }
-                                                                 public void SetPlayerHightWeightFish(float weight) { playerHighestWeightFish = weight; }
+    [SerializeField] private float playerHighestScore = 0.0f;   public float GetPlayerHighestScore() { return playerHighestScore; }
+                                                                public void SetPlayerHighestScore(float score) { playerHighestScore = score; }
+
+    [SerializeField] private float playerHighestWeightFish = 0.0f;  public float GetPlayerHighestWeightFish() { return playerHighestWeightFish; }
+                                                                    public void SetPlayerHighestWeightFish(float weight) { playerHighestWeightFish = weight; }
+
     #endregion
 
 

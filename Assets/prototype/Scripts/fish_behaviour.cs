@@ -6,18 +6,16 @@ using UnityEngine.AI;
 
 public class fish_behaviour : MonoBehaviour
 {
-    public NavMeshAgent fish;
-    
-    public Transform hook;
-    
-    public LayerMask whatIsHook, whatIsGround;
+    [SerializeField] private NavMeshAgent fish;
+    [SerializeField] private Transform hook;
 
     public Vector3 swimPoint;
-    bool swimPointSet = false;
-    [SerializeField] float SwimPointRange;
+    
+    private bool swimPointSet = false;
+    [SerializeField] private Transform swimPointBL, swimPointTR;
 
-    public float sightRange;
-    public bool playerInSightRange;
+    [SerializeField] private float sightRange;
+    [SerializeField] private bool playerInSightRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,27 +26,27 @@ public class fish_behaviour : MonoBehaviour
 
     void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsHook);
+        if (Vector3.Distance(transform.position, hook.position) <= sightRange)  
+        { playerInSightRange = true; } else
+        { playerInSightRange = false; }
 
-        if (!playerInSightRange)
-        {
-            swimming();
-        }
+
         if (playerInSightRange)
         {
             bite();
-            playerInSightRange = false;
         }
+        if (!playerInSightRange && transform.position != swimPoint)
+        {
+            swimming();
+        }
+        
     }
 
     private void swimming()
     {
-        if (!swimPointSet) SearchSwimPoint();
-
-        if (swimPointSet)
-        {
-            fish.SetDestination(swimPoint);
-        }
+        if (!swimPointSet) { SearchSwimPoint(); }
+        else { fish.SetDestination(swimPoint); }
+        
         Vector3 distanceToSwimPoint = transform.position - swimPoint;
 
         if (distanceToSwimPoint.magnitude < 1f)
@@ -59,15 +57,14 @@ public class fish_behaviour : MonoBehaviour
 
     private void SearchSwimPoint()
     {
-        float randomZ = UnityEngine.Random.Range(-SwimPointRange, SwimPointRange);
-        float randomX = UnityEngine.Random.Range(-SwimPointRange, SwimPointRange);
+        float randomZ = UnityEngine.Random.Range(swimPointBL.position.z, swimPointTR.position.z);
+        float randomX = UnityEngine.Random.Range(swimPointBL.position.x, swimPointTR.position.x);
         
-        swimPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-        
-        if (Physics.Raycast(swimPoint, Vector3.down, 2f, whatIsGround))
-        {
-            swimPointSet = true;
-        }
+        swimPoint = new Vector3(randomX, transform.position.y, randomZ);
+
+        swimPointSet = true;
+
+        fish.SetDestination(swimPoint);
     }
 
     private void bite()
