@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class fishing : MonoBehaviour
 {
 
+    
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private bool atTop;
     [SerializeField] private float targetTime = 4.0f;
     [SerializeField] private float savedTargetTime;
     [SerializeField] private GameObject minigame;
-
     [SerializeField] private Slider progressBar;
     
     [SerializeField] private float progress = 50.0f;
@@ -26,7 +26,7 @@ public class fishing : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -76,7 +76,6 @@ public class fishing : MonoBehaviour
             minigame.SetActive(false);
             realFish.transform.position = Respawn.transform.position;
             realFish.SetActive(true);
-
         }
         
 
@@ -100,4 +99,5 @@ public class fishing : MonoBehaviour
             onFish = false;
         }
     }
+
 }

@@ -18,6 +18,7 @@ public class fishingTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("fish"))
         {
             other.gameObject.SetActive(false);
+            Destroy(gameObject);
             minigame.SetActive(true);
             gpSettings.fishBitesLine();
         }
