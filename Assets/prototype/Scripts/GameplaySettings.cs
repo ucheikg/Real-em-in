@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameplaySettings : MonoBehaviour
 {
@@ -16,6 +17,25 @@ public class GameplaySettings : MonoBehaviour
     public void addFishToPool(Item f) { fishPool.Add(f); }
 
 
+    [SerializeField] private GameObject miniGame;
+    [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private Transform respawnPoint;
+
+    #region FishStuff
+    [Header("Fish Stuff")]
+    public Transform hookTransform;
+    public Transform swimPointBL;
+    public Transform swimPointTR;
+    #endregion
+
+
+
+    private void Start()
+    {
+        miniGame.SetActive(false);
+        spawnFish();
+    }
+
     public void fishBitesLine()
     {
         int fishNum = Random.Range(0, 1000);
@@ -28,19 +48,21 @@ public class GameplaySettings : MonoBehaviour
             fishRarityList.Add(int.Parse((item.GetChance() * 10).ToString()));
         }
 
-
         for(int i = 0; i < fishPool.Count; i++)
         {
-            if (fishRarityList[i] > fishNum)
+            if (fishRarityList[i] <= fishNum)
             {
                 continue;
             }
             else
             {
                 fish = fishPool[i];
-                return;
+                break;
             }
         }
+
+        miniGame.SetActive(true);
+        Debug.Log("Minigame Start!");
     }
 
     public void clearFishCaught() // clears fish
@@ -51,5 +73,11 @@ public class GameplaySettings : MonoBehaviour
     private void SortPoolByChance() // sort fish by chance
     {
         fishPool.Sort((a, b) => { return a.GetChance().CompareTo(b.GetChance()); });
+    }
+
+
+    private void spawnFish()
+    {
+        Instantiate(fishPrefab, respawnPoint.position, respawnPoint.rotation);
     }
 }

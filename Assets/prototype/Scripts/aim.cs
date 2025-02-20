@@ -51,12 +51,12 @@ public class aim : MonoBehaviour
         canthrow = false;
         canreturn = true;
 
-        Hook = Instantiate(hook, reticle.transform.position, cam.rotation);
+        Hook.transform.position = reticle.transform.position;
 
-        Rigidbody HookRB = Hook.GetComponent<Rigidbody>();
+        //Rigidbody HookRB = Hook.GetComponent<Rigidbody>();
 
-        Vector3 forceToAdd = reticle.transform.forward * throwforce + transform.up * throwUpForce;
+        //Vector3 forceToAdd = reticle.transform.forward * throwforce + transform.up * throwUpForce;
 
-        HookRB.AddForce(forceToAdd, ForceMode.Impulse);
+        //HookRB.AddForce(forceToAdd, ForceMode.Impulse);
     }
 }

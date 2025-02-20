@@ -6,13 +6,13 @@ using UnityEngine.AI;
 
 public class fish_behaviour : MonoBehaviour
 {
-    [SerializeField] private NavMeshAgent fish;
-    [SerializeField] private Transform hook;
+    private NavMeshAgent fish;
+    private Transform hook;
 
     public Vector3 swimPoint;
     
     private bool swimPointSet = false;
-    [SerializeField] private Transform swimPointBL, swimPointTR;
+    private Transform swimPointBL, swimPointTR;
 
     [SerializeField] private float sightRange;
     [SerializeField] private bool playerInSightRange = false;
@@ -20,7 +20,9 @@ public class fish_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hook = GameObject.Find("hook").transform;
+        hook = GameObject.Find("GameplaySettings").GetComponent<GameplaySettings>().hookTransform;
+        swimPointBL = GameObject.Find("GameplaySettings").GetComponent<GameplaySettings>().swimPointBL;
+        swimPointTR = GameObject.Find("GameplaySettings").GetComponent<GameplaySettings>().swimPointTR;
         fish = GetComponent<NavMeshAgent>();
     }
 
