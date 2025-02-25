@@ -13,8 +13,7 @@ public class aim : MonoBehaviour
     [SerializeField] private float throwUpForce;
     [SerializeField] GameObject Hook;
 
-    bool canthrow;
-    bool canreturn;
+    public bool canthrow;
     fishing Cast;
 
     [SerializeField] private Camera maincamera;
@@ -38,18 +37,13 @@ public class aim : MonoBehaviour
             Throw();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && canreturn)
-        {
-            canthrow = true;
-            Destroy(Hook);
-        }
+        
 
     }
 
     void Throw()
     {
         canthrow = false;
-        canreturn = true;
 
         Hook.transform.position = reticle.transform.position;
 

@@ -258,6 +258,7 @@ MonoBehaviour:
   Bottom: {fileID: 80892112}
   speed: 2
   randPos: 0
+  canMove: 0
 --- !u!1 &80892111
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +925,7 @@ MonoBehaviour:
   throwforce: 3
   throwUpForce: 3
   Hook: {fileID: 1081000766}
+  canthrow: 0
   maincamera: {fileID: 963194227}
 --- !u!4 &620507135
 Transform:
@@ -1222,9 +1224,10 @@ MonoBehaviour:
   gainProgressSpeed: 10
   lossProgressSpeed: 10
   playerSpeed: 100
-  fish: {fileID: 24293294}
-  realFish: {fileID: 0}
-  Respawn: {fileID: 796672707}
+  gameplaySettings: {fileID: 1290721295}
+  aimScript: {fileID: 620507134}
+  marker: {fileID: 24293300}
+  hookObject: {fileID: 1081000766}
   onFish: 0
 --- !u!114 &800386949
 MonoBehaviour:
@@ -1738,6 +1741,7 @@ MonoBehaviour:
   fishPrefab: {fileID: 743001778007260928, guid: b99b013cf7c02ac41bc143845ca78274,
     type: 3}
   respawnPoint: {fileID: 796672707}
+  marker: {fileID: 0}
   hookTransform: {fileID: 1081000770}
   swimPointBL: {fileID: 2121722799}
   swimPointTR: {fileID: 95312751}

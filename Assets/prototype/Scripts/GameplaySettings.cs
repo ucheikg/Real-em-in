@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Timeline;
 
 public class GameplaySettings : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameplaySettings : MonoBehaviour
     [SerializeField] private GameObject miniGame;
     [SerializeField] private GameObject fishPrefab;
     [SerializeField] private Transform respawnPoint;
+    [SerializeField] private Fish_Marker marker;
 
     #region FishStuff
     [Header("Fish Stuff")]
@@ -63,6 +65,9 @@ public class GameplaySettings : MonoBehaviour
 
         miniGame.SetActive(true);
         Debug.Log("Minigame Start!");
+        marker.canMove = true;
+        marker.startMarker();
+        
     }
 
     public void clearFishCaught() // clears fish
@@ -76,8 +81,9 @@ public class GameplaySettings : MonoBehaviour
     }
 
 
-    private void spawnFish()
+    public void spawnFish()
     {
         Instantiate(fishPrefab, respawnPoint.position, respawnPoint.rotation);
+        
     }
 }

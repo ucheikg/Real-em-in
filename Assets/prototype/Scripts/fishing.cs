@@ -13,10 +13,10 @@ public class fishing : MonoBehaviour
     [SerializeField] private float lossProgressSpeed = 10f;
     [SerializeField] private float playerSpeed = 100f;
 
-
-    [SerializeField] private GameObject fish;
-    [SerializeField] private GameObject realFish;
-    [SerializeField] private Transform Respawn;
+    [SerializeField] private GameplaySettings gameplaySettings;
+    [SerializeField] private aim aimScript;
+    [SerializeField] private Fish_Marker marker;
+    [SerializeField] private GameObject hookObject;
 
     [SerializeField] private bool onFish = false;
 
@@ -40,6 +40,15 @@ public class fishing : MonoBehaviour
             else
             {
                 progress = 100f;
+                //transform.localPosition = new Vector3(42, 37.81873f, 0);
+                onFish = false;
+                Debug.Log("caught");
+                minigame.SetActive(false);
+                gameplaySettings.spawnFish();
+                aimScript.canthrow = true;
+                marker.canMove = false;
+                hookObject.SetActive(true);
+                progress = 50;
             }
         }
         else 
@@ -51,31 +60,21 @@ public class fishing : MonoBehaviour
             else
             {
                 progress = 0.0f;
+                //transform.localPosition = new Vector3(42, 37.81873f, 0);
+                onFish = false;
+                Debug.Log("Lost");
+                minigame.SetActive(false);
+                gameplaySettings.spawnFish();
+                aimScript.canthrow = true;
+                marker.canMove = false;
+                hookObject.SetActive(true);
+                progress = 50;
             }
         }
 
         
 
-        //if (progress <= 0.0f)
-        //{
-        //    //transform.localPosition = new Vector3(42, 37.81873f, 0);
-        //    onFish = false;
-        //    targetTime = 4.0f;
-        //    Debug.Log("Lost");
-        //    minigame.SetActive(false);
-        //    realFish.transform.position = Respawn.transform.position;
-        //    realFish.SetActive(true);
-        //}
-        //if (progress >= 100.0f)
-        //{
-        //    //transform.localPosition = new Vector3(42, 37.81873f, 0);
-        //    onFish = false;
-        //    targetTime = 4.0f;
-        //    Debug.Log("caught");
-        //    minigame.SetActive(false);
-        //    realFish.transform.position = Respawn.transform.position;
-        //    realFish.SetActive(true);
-        //}
+        
         
 
         if (Input.GetKey(KeyCode.Space))
