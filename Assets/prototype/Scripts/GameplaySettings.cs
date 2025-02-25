@@ -6,6 +6,8 @@ using UnityEngine.Timeline;
 
 public class GameplaySettings : MonoBehaviour
 {
+    private GameSettings gameSettings;
+
 
     [SerializeField] private Item fish; // Fish that has bit the line.
     public Item getFish() { return fish;  }
@@ -86,4 +88,13 @@ public class GameplaySettings : MonoBehaviour
         Instantiate(fishPrefab, respawnPoint.position, respawnPoint.rotation);
         
     }
+
+    public void addScoreToPlayer()
+    {
+        int currentScore = gameSettings.GetPlayerCurrentScore();
+        int fishScore = fish.GetScore();
+
+        gameSettings.SetPlayerCurrentScore(currentScore + fishScore);
+    }
+
 }

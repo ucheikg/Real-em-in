@@ -16,17 +16,22 @@ public class Item : ScriptableObject
 
     [SerializeField] private Rarity rarity = Rarity.Common; public Rarity GetRarity() { return rarity; }
 
+
+    [SerializeField] private int score = 0; public int GetScore() { return score; }
+                                                         
+
     [SerializeField] private float Chance = 0.0f; public float GetChance() { return Chance; }
 
-    private float miniGameDifficulty = 0f; public float GetMiniGameDifficulty() { return miniGameDifficulty; }
+    private int miniGameDifficulty = 0; public int GetMiniGameDifficulty() { return miniGameDifficulty; }
     private float healthDrainDifficulty = 0f; public float GetHealthDrainDifficulty() { return healthDrainDifficulty; }
 
     public void onLine()
     {
         weight = Random.Range(minMaxWeight.x, minMaxWeight.y);
 
-        miniGameDifficulty = minMaxWeight.y / weight * (int) rarity;
-        
+        miniGameDifficulty = Mathf.RoundToInt(weight * (int) rarity);
+        score = miniGameDifficulty * 10; 
+
         switch (rarity)
         {
             case Rarity.Common:

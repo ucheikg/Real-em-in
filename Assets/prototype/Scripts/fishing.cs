@@ -39,8 +39,10 @@ public class fishing : MonoBehaviour
             }
             else
             {
+                // Caught fish
+                gameplaySettings.addScoreToPlayer();
                 progress = 100f;
-                //transform.localPosition = new Vector3(42, 37.81873f, 0);
+                
                 onFish = false;
                 Debug.Log("caught");
                 minigame.SetActive(false);
@@ -59,8 +61,9 @@ public class fishing : MonoBehaviour
             }
             else
             {
+                // Lost fish
                 progress = 0.0f;
-                //transform.localPosition = new Vector3(42, 37.81873f, 0);
+                
                 onFish = false;
                 Debug.Log("Lost");
                 minigame.SetActive(false);
