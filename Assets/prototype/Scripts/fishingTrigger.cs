@@ -7,19 +7,16 @@ public class fishingTrigger : MonoBehaviour
 {
     public GameObject minigame;
 
+
     [SerializeField] private GameplaySettings gpSettings;
-    void Start()
-    {
-        minigame.SetActive(false);
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("fish"))
         {
-            other.gameObject.SetActive(false);
-            Destroy(gameObject);
-            minigame.SetActive(true);
+            Destroy(other.gameObject);
+            transform.position = transform.parent.transform.position;
+            gameObject.SetActive(false);
             gpSettings.fishBitesLine();
         }
     }

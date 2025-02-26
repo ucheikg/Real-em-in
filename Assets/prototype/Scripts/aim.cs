@@ -13,8 +13,7 @@ public class aim : MonoBehaviour
     [SerializeField] private float throwUpForce;
     [SerializeField] GameObject Hook;
 
-    bool canthrow;
-    bool canreturn;
+    public bool canthrow;
     fishing Cast;
 
     [SerializeField] private Camera maincamera;
@@ -38,25 +37,20 @@ public class aim : MonoBehaviour
             Throw();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && canreturn)
-        {
-            canthrow = true;
-            Destroy(Hook);
-        }
+        
 
     }
 
     void Throw()
     {
         canthrow = false;
-        canreturn = true;
 
-        Hook = Instantiate(hook, reticle.transform.position, cam.rotation);
+        Hook.transform.position = reticle.transform.position;
 
-        Rigidbody HookRB = Hook.GetComponent<Rigidbody>();
+        //Rigidbody HookRB = Hook.GetComponent<Rigidbody>();
 
-        Vector3 forceToAdd = reticle.transform.forward * throwforce + transform.up * throwUpForce;
+        //Vector3 forceToAdd = reticle.transform.forward * throwforce + transform.up * throwUpForce;
 
-        HookRB.AddForce(forceToAdd, ForceMode.Impulse);
+        //HookRB.AddForce(forceToAdd, ForceMode.Impulse);
     }
 }

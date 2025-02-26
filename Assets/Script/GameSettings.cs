@@ -61,8 +61,11 @@ public class GameSettings : MonoBehaviour
 
     #region Player
     [Header("Player")]
-    [SerializeField] private string playerName = string.Empty; public string GetPlayerName() { return playerName; }
-                                                               public void SetPlayerName(string name) {  playerName = name; }
+    [SerializeField] private string playerName = string.Empty;  public string GetPlayerName() { return playerName; }
+                                                                public void SetPlayerName(string name) {  playerName = name; }
+
+    [SerializeField] private int playerCurrentScore = 0;   public int GetPlayerCurrentScore() { return playerCurrentScore; }
+                                                                public void SetPlayerCurrentScore(int score) { if (playerCurrentScore <= playerHighestScore) { playerCurrentScore = score; } else { playerHighestScore = score; playerCurrentScore = score; } }
 
     [SerializeField] private float playerHighestScore = 0.0f;   public float GetPlayerHighestScore() { return playerHighestScore; }
                                                                 public void SetPlayerHighestScore(float score) { playerHighestScore = score; }

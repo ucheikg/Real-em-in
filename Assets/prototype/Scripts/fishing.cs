@@ -4,11 +4,6 @@ using UnityEngine.UI;
 
 public class fishing : MonoBehaviour
 {
-
-    
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private bool atTop;
-    [SerializeField] private float targetTime = 4.0f;
     [SerializeField] private float savedTargetTime;
     [SerializeField] private GameObject minigame;
     [SerializeField] private Slider progressBar;
@@ -16,13 +11,14 @@ public class fishing : MonoBehaviour
     [SerializeField] private float progress = 50.0f;
     [SerializeField] private float gainProgressSpeed = 10f;
     [SerializeField] private float lossProgressSpeed = 10f;
+    [SerializeField] private float playerSpeed = 100f;
 
+    [SerializeField] private GameplaySettings gameplaySettings;
+    [SerializeField] private aim aimScript;
+    [SerializeField] private Fish_Marker marker;
+    [SerializeField] private GameObject hookObject;
 
-    [SerializeField] private GameObject fish;
-    [SerializeField] private GameObject realFish;
-    [SerializeField] private Transform Respawn;
-
-    [SerializeField] private bool onFish;
+    [SerializeField] private bool onFish = false;
 
     void Start()
     {
@@ -32,15 +28,29 @@ public class fishing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        progressBar.value = progress;
+
+
         if (onFish == true) 
         {
-            if (progress < 0f)
+            if (progress < 100f)
             {
                 progress += gainProgressSpeed * Time.deltaTime;
             }
             else
             {
+                // Caught fish
+                gameplaySettings.addScoreToPlayer();
                 progress = 100f;
+                
+                onFish = false;
+                Debug.Log("caught");
+                minigame.SetActive(false);
+                gameplaySettings.spawnFish();
+                aimScript.canthrow = true;
+                marker.canMove = false;
+                hookObject.SetActive(true);
+                progress = 50;
             }
         }
         else 
@@ -51,37 +61,47 @@ public class fishing : MonoBehaviour
             }
             else
             {
+                // Lost fish
                 progress = 0.0f;
+                
+                onFish = false;
+                Debug.Log("Lost");
+                minigame.SetActive(false);
+                gameplaySettings.spawnFish();
+                aimScript.canthrow = true;
+                marker.canMove = false;
+                hookObject.SetActive(true);
+                progress = 50;
             }
         }
 
-        progressBar.value = progress;
+        
 
-        if (targetTime <= 0.0f)
-        {
-            transform.localPosition = new Vector3(42, 37.81873f, 0);
-            onFish = false;
-            targetTime = 4.0f;
-            Debug.Log("Lost");
-            minigame.SetActive(false);
-            realFish.transform.position = Respawn.transform.position;
-            realFish.SetActive(true);
-        }
-        if (targetTime >= 8.0f)
-        {
-            transform.localPosition = new Vector3(42, 37.81873f, 0);
-            onFish = false;
-            targetTime = 4.0f;
-            Debug.Log("caught");
-            minigame.SetActive(false);
-            realFish.transform.position = Respawn.transform.position;
-            realFish.SetActive(true);
-        }
+        
         
 
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up, ForceMode2D.Impulse);
+            if (transform.localPosition.y < 146)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (playerSpeed * Time.deltaTime), transform.localPosition.z);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, 145, transform.localPosition.z);
+            }
+        }
+        else
+        {
+            if(transform.localPosition.y > -149)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - (playerSpeed * Time.deltaTime), transform.localPosition.z);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, -148, transform.localPosition.z);
+            }
+            
         }
     }
 
