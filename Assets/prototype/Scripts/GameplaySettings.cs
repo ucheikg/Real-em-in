@@ -36,6 +36,7 @@ public class GameplaySettings : MonoBehaviour
 
     private void Start()
     {
+        gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
         miniGame.SetActive(false);
         spawnFish();
     }
