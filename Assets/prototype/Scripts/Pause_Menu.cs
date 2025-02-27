@@ -11,6 +11,9 @@ public class Pause_Menu : MonoBehaviour
 
     void Start()
     {
+        PauseMenuUI.SetActive(false);
+        quitMenuUI.SetActive(false);
+        controlsMenuUI.SetActive(false);
         pause = false;
     }
 
@@ -51,7 +54,9 @@ public class Pause_Menu : MonoBehaviour
 
     public void Controls()
     {
-        Debug.Log("controls");
+        PauseMenuUI.SetActive(false);
+        controlsMenuUI.SetActive(true);
+        pause = true;
     }
 
     public void QuitToTitle()
