@@ -8,8 +8,17 @@ public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
+    public TextMeshProUGUI finalplayerScore;
+    private GameSettings gameSettings;
 
     // Update is called once per frame
+    private void Start()
+    {
+        gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
+
+        finalplayerScore.text = gameSettings.GetPlayerCurrentScore().ToString();
+    }
+
     void Update()
     {
         if (remainingTime > 0)
@@ -26,7 +35,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         if(remainingTime <= 0)
         {
-            SceneManager.LoadScene("Leardboard");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
