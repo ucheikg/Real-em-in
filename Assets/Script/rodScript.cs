@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class rodScript : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class rodScript : MonoBehaviour
     [SerializeField] private GameObject fishingRod;
     [SerializeField] private GameObject bait;
     [SerializeField] private Transform baitOrigin;
+    [SerializeField] private GameObject powerGauge;
     private Rigidbody baitRb;
     private Animator animator;
 
     [SerializeField] private float charge = 0f;
-    [SerializeField] private float maxCharge = 10f;
+    [SerializeField] private float maxCharge = 100f;
     [SerializeField] private float chargeSpeed = 10f;
     private fishingRodState charging = fishingRodState.Idle;
     public bool canCharge = true;
@@ -24,6 +26,7 @@ public class rodScript : MonoBehaviour
     {
         animator = fishingRod.GetComponent<Animator>();
         baitRb = bait.GetComponent<Rigidbody>();
+        powerGauge.GetComponent<Slider>().maxValue = maxCharge;
     }
 
     // Update is called once per frame
@@ -55,6 +58,12 @@ public class rodScript : MonoBehaviour
         if (charging == fishingRodState.Charging)
         {
             charge += chargeSpeed * Time.deltaTime;
+            powerGauge.SetActive(true);
+            powerGauge.GetComponent<Slider>().value = charge;
+        }
+        else
+        {
+            powerGauge.SetActive(true);
         }
 
         if (charging == fishingRodState.Throwing)
