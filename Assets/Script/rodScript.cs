@@ -16,7 +16,7 @@ public class rodScript : MonoBehaviour
     [SerializeField] private float chargeSpeed = 10f;
     private fishingRodState charging = fishingRodState.Idle;
     public bool canCharge = true;
-    private bool lockBait = true;
+    public bool lockBait = true;
 
 
     // Start is called before the first frame update
@@ -44,6 +44,7 @@ public class rodScript : MonoBehaviour
         if (Input.GetButtonUp("Fire1") && charging == fishingRodState.Charging)
         {
             charging = fishingRodState.Throwing;
+            canCharge = true;
         }
 
         if(charge >= maxCharge && charging == fishingRodState.Charging)

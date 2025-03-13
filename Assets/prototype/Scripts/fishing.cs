@@ -47,6 +47,7 @@ public class fishing : MonoBehaviour
                 minigame.SetActive(false);
                 fishMarker.canMove = false;
                 rod.canCharge = true;
+                rod.lockBait = true;
                 progress = 50;
             }
         }
@@ -66,6 +67,7 @@ public class fishing : MonoBehaviour
                 minigame.SetActive(false);
                 fishMarker.canMove = false;
                 rod.canCharge = true;
+                rod.lockBait = true;
                 progress = 50;
             }
         }

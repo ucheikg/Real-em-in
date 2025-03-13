@@ -651,7 +651,12 @@ MonoBehaviour:
   fishMarker: {fileID: 346033137}
   rod: {fileID: 285242425}
   fish: {fileID: 0}
-  fishPool: []
+  fishPool:
+  - {fileID: 11400000, guid: 15fde4a575746fa4384a746372ece11d, type: 2}
+  - {fileID: 11400000, guid: a0b876faf4338ad4198bc3bcb5ac1853, type: 2}
+  - {fileID: 11400000, guid: b971f3b6dd41eca4995fdbdf2e85a405, type: 2}
+  - {fileID: 11400000, guid: 018ce0bfbf6f20f46b88e9bdeffe07a2, type: 2}
+  - {fileID: 11400000, guid: 7022582996e30d1408fdcd813297e6e6, type: 2}
   miniGame: {fileID: 445838483}
 --- !u!1 &483333355
 GameObject:

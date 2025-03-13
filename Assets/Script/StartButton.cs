@@ -36,13 +36,14 @@ public class StartButton : MonoBehaviour
     private void OnEnterGame()
     {
         Debug.Log("Entering");
-        StartCoroutine(loadNameSelectScene());
+        StartCoroutine(loadNextScene());
     }
 
-    IEnumerator loadNameSelectScene()
+    IEnumerator loadNextScene()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Game_Scene");
+        int i = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(i + 1);
     }
 
 

@@ -62,7 +62,8 @@ public class GameplaySettings : MonoBehaviour
         fishMarker.canMove = true;
         rod.canCharge = false;
         fishMarker.startMarker();
-        
+        fish.onLine();
+
         Debug.Log("Minigame Start!");
     }
 
