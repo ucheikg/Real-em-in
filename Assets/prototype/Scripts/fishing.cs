@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class fishing : MonoBehaviour
 {
-    [SerializeField] private float savedTargetTime;
     [SerializeField] private GameObject minigame;
+    [SerializeField] private Fish_Marker fishMarker;
+    [SerializeField] private rodScript rod;
     [SerializeField] private Slider progressBar;
     
     [SerializeField] private float progress = 50.0f;
@@ -14,9 +16,6 @@ public class fishing : MonoBehaviour
     [SerializeField] private float playerSpeed = 100f;
 
     [SerializeField] private GameplaySettings gameplaySettings;
-    [SerializeField] private aim aimScript;
-    [SerializeField] private Fish_Marker marker;
-    [SerializeField] private GameObject hookObject;
 
     [SerializeField] private bool onFish = false;
 
@@ -46,10 +45,8 @@ public class fishing : MonoBehaviour
                 onFish = false;
                 Debug.Log("caught");
                 minigame.SetActive(false);
-                gameplaySettings.spawnFish();
-                aimScript.canthrow = true;
-                marker.canMove = false;
-                hookObject.SetActive(true);
+                fishMarker.canMove = false;
+                rod.canCharge = true;
                 progress = 50;
             }
         }
@@ -67,10 +64,8 @@ public class fishing : MonoBehaviour
                 onFish = false;
                 Debug.Log("Lost");
                 minigame.SetActive(false);
-                gameplaySettings.spawnFish();
-                aimScript.canthrow = true;
-                marker.canMove = false;
-                hookObject.SetActive(true);
+                fishMarker.canMove = false;
+                rod.canCharge = true;
                 progress = 50;
             }
         }

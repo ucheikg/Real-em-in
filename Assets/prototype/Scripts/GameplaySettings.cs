@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Timeline;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GameplaySettings : MonoBehaviour
 {
     private GameSettings gameSettings;
+    [SerializeField] private Fish_Marker fishMarker;
+    [SerializeField] private rodScript rod;
 
 
     [SerializeField] private Item fish; // Fish that has bit the line.
@@ -21,24 +24,13 @@ public class GameplaySettings : MonoBehaviour
 
 
     [SerializeField] private GameObject miniGame;
-    [SerializeField] private GameObject fishPrefab;
-    [SerializeField] private Transform respawnPoint;
-    [SerializeField] private Fish_Marker marker;
-
-    #region FishStuff
-    [Header("Fish Stuff")]
-    public Transform hookTransform;
-    public Transform swimPointBL;
-    public Transform swimPointTR;
-    #endregion
 
 
 
     private void Start()
     {
-        gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
         miniGame.SetActive(false);
-        spawnFish();
+        gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
     }
 
     public void fishBitesLine()
@@ -67,10 +59,11 @@ public class GameplaySettings : MonoBehaviour
         }
 
         miniGame.SetActive(true);
-        Debug.Log("Minigame Start!");
-        marker.canMove = true;
-        marker.startMarker();
+        fishMarker.canMove = true;
+        rod.canCharge = false;
+        fishMarker.startMarker();
         
+        Debug.Log("Minigame Start!");
     }
 
     public void clearFishCaught() // clears fish
@@ -81,13 +74,6 @@ public class GameplaySettings : MonoBehaviour
     private void SortPoolByChance() // sort fish by chance
     {
         fishPool.Sort((a, b) => { return a.GetChance().CompareTo(b.GetChance()); });
-    }
-
-
-    public void spawnFish()
-    {
-        Instantiate(fishPrefab, respawnPoint.position, respawnPoint.rotation);
-        
     }
 
     public void addScoreToPlayer()
