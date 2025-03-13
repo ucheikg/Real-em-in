@@ -1910,7 +1910,7 @@ MonoBehaviour:
   gainProgressSpeed: 10
   lossProgressSpeed: 10
   playerSpeed: 100
-  gameplaySettings: {fileID: 0}
+  gameplaySettings: {fileID: 2000488667}
   onFish: 0
 --- !u!114 &626362214
 MonoBehaviour:
