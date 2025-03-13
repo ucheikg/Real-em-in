@@ -15,6 +15,15 @@ public class baitScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 4)
+        {
+
+            StopAllCoroutines();
+        }
+    }
+
     IEnumerator waitForFish(float time)
     {
         yield return new WaitForSeconds(time);
