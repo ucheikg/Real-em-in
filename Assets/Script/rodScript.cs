@@ -63,7 +63,7 @@ public class rodScript : MonoBehaviour
         }
         else
         {
-            powerGauge.SetActive(true);
+            powerGauge.SetActive(false);
         }
 
         if (charging == fishingRodState.Throwing)
@@ -88,7 +88,7 @@ public class rodScript : MonoBehaviour
     {
 
         lockBait = false;
-        Vector3 dir = new Vector3(0, 5f * charge, 10f * charge);
+        Vector3 dir = new Vector3(0, 1f * charge, 2f * charge);
         baitRb.AddForce(dir, ForceMode.Impulse);
     }
 
