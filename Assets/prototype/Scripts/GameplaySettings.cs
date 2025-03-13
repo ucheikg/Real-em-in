@@ -10,7 +10,6 @@ public class GameplaySettings : MonoBehaviour
     private GameSettings gameSettings;
     [SerializeField] private Fish_Marker fishMarker;
     [SerializeField] private rodScript rod;
-    [SerializeField] private GameObject miniGame;
 
 
     [SerializeField] private Item fish; // Fish that has bit the line.
@@ -24,7 +23,7 @@ public class GameplaySettings : MonoBehaviour
     public void addFishToPool(Item f) { fishPool.Add(f); }
 
 
-    
+    [SerializeField] private GameObject miniGame;
 
 
 
