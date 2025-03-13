@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] float remainingTime;
@@ -16,7 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
 
-        finalplayerScore.text = gameSettings.GetPlayerCurrentScore().ToString();
+        //finalplayerScore.text = gameSettings.GetPlayerCurrentScore().ToString();
     }
 
     void Update()
