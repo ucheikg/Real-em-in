@@ -23,7 +23,7 @@ public class GameSettings : MonoBehaviour
         }*/
 
         #region Testing
-        string print = string.Empty;
+        /*string print = string.Empty;
         print = "Inventory Before";
         foreach(Item i in Inventory)
         {
@@ -53,7 +53,7 @@ public class GameSettings : MonoBehaviour
         {
             print = print + "\n" + i.GetItemName() + " : " + i.GetWeight().ToString() + " : " + i.GetRarity().ToString();
         }
-        Debug.Log(print);
+        Debug.Log(print);*/
         #endregion
     }
 

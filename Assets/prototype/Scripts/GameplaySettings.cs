@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Timeline;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GameplaySettings : MonoBehaviour
 {
     private GameSettings gameSettings;
+    [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private Fish_Marker fishMarker;
     [SerializeField] private rodScript rod;
 
@@ -31,6 +31,11 @@ public class GameplaySettings : MonoBehaviour
     {
         miniGame.SetActive(false);
         gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
+    }
+
+    private void Update()
+    {
+        scoreDisplay.text = "Score: " + gameSettings.GetPlayerCurrentScore().ToString();
     }
 
     public void fishBitesLine()
@@ -58,11 +63,13 @@ public class GameplaySettings : MonoBehaviour
             }
         }
 
+        Debug.Log(fish);
         miniGame.SetActive(true);
         fishMarker.canMove = true;
         rod.canCharge = false;
         fishMarker.startMarker();
         fish.onLine();
+        
 
         Debug.Log("Minigame Start!");
     }
@@ -82,6 +89,7 @@ public class GameplaySettings : MonoBehaviour
         int currentScore = gameSettings.GetPlayerCurrentScore();
         int fishScore = fish.GetScore();
 
+        gameSettings.InventoryAddItem(fish);
         gameSettings.SetPlayerCurrentScore(currentScore + fishScore);
     }
 

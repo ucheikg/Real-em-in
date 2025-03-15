@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 1495085958}
   - component: {fileID: 1495085957}
   - component: {fileID: 1495085956}
+  - component: {fileID: 1495085959}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -1030,6 +1031,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495085954}
   m_CullTransparentMesh: 1
+--- !u!114 &1495085959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495085954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 271c18304d71c8d40b09aae8c2074096,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1516109619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,7 +1628,7 @@ PrefabInstance:
     - target: {fileID: 4881170210802044623, guid: 4b7de3afdbceebd4a82a5488cfb5f99e,
         type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Final Score: 0'
       objectReference: {fileID: 0}
     - target: {fileID: 4881170210802044623, guid: 4b7de3afdbceebd4a82a5488cfb5f99e,
         type: 3}
@@ -1607,6 +1639,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881170210802044623, guid: 4b7de3afdbceebd4a82a5488cfb5f99e,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881170210802044623, guid: 4b7de3afdbceebd4a82a5488cfb5f99e,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5888847066159899315, guid: 4b7de3afdbceebd4a82a5488cfb5f99e,
         type: 3}
