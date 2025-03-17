@@ -32,6 +32,8 @@ public class rodScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         // Fishing Rod Controls
         if (Input.GetButtonDown("Fire1") && canCharge)
         {
@@ -94,7 +96,7 @@ public class rodScript : MonoBehaviour
 
     IEnumerator ThrowLine()
     {
-        yield return new WaitForSeconds(0.833333335f);
+        yield return new WaitForSeconds(0.5f);
         animator.ResetTrigger("Throw");
         ThrowBait();
     }

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Bluegill Sunfish
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _model: {fileID: 410752134479444999, guid: 6752e626a0c3ab14a9e9a9029cb2e78b, type: 3}
   ItemName: Bluegill Sunfish
   minMaxWeight: {x: 0.1, y: 0.5}
   weight: 0
   rarity: 1
+  score: 0
   Chance: 60

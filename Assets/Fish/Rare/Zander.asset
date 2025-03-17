@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Zander
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _model: {fileID: 410752134479444999, guid: 6752e626a0c3ab14a9e9a9029cb2e78b, type: 3}
   ItemName: Zander
   minMaxWeight: {x: 1.5, y: 12}
   weight: 0
   rarity: 3
+  score: 0
   Chance: 15

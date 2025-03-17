@@ -10,6 +10,7 @@ public class GameplaySettings : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreDisplay;
     [SerializeField] private Fish_Marker fishMarker;
     [SerializeField] private rodScript rod;
+    [SerializeField] private GameObject bait;
 
 
     [SerializeField] private Item fish; // Fish that has bit the line.
@@ -24,7 +25,7 @@ public class GameplaySettings : MonoBehaviour
 
 
     [SerializeField] private GameObject miniGame;
-
+    private GameObject f;
 
 
     private void Start()
@@ -40,6 +41,8 @@ public class GameplaySettings : MonoBehaviour
 
     public void fishBitesLine()
     {
+        if (f != null) { Destroy(f); }
+        
         int fishNum = Random.Range(0, 1000);
 
         SortPoolByChance();
@@ -52,7 +55,7 @@ public class GameplaySettings : MonoBehaviour
 
         for(int i = 0; i < fishPool.Count; i++)
         {
-            if (fishRarityList[i] <= fishNum)
+            if (fishRarityList[i] >= fishNum)
             {
                 continue;
             }
@@ -63,12 +66,14 @@ public class GameplaySettings : MonoBehaviour
             }
         }
 
+        Debug.Log(fishNum);
         Debug.Log(fish);
         miniGame.SetActive(true);
         fishMarker.canMove = true;
         rod.canCharge = false;
         fishMarker.startMarker();
         fish.onLine();
+        f = Instantiate(fish.GetModel(), bait.transform);
         
 
         Debug.Log("Minigame Start!");
@@ -76,12 +81,13 @@ public class GameplaySettings : MonoBehaviour
 
     public void clearFishCaught() // clears fish
     {
+        
         fish = null;
     }
 
     private void SortPoolByChance() // sort fish by chance
     {
-        fishPool.Sort((a, b) => { return a.GetChance().CompareTo(b.GetChance()); });
+        fishPool.Sort((a, b) => { return b.GetChance().CompareTo(a.GetChance()); });
     }
 
     public void addScoreToPlayer()

@@ -565,6 +565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 425963350}
   - {fileID: 2071862799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 5.98, y: 0, z: 0}
@@ -911,12 +912,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425963349}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.9999995, z: 1.3999982}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0.08715579, y: -0, z: -0, w: 0.9961948}
+  m_LocalPosition: {x: 2.53, y: 1.5623382, z: 4.2241344}
+  m_LocalScale: {x: 0.4, y: 0.40000004, z: 0.40000004}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2071862799}
+  m_Father: {fileID: 285242423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &425963351
 SphereCollider:
@@ -1680,7 +1681,6 @@ GameObject:
   - component: {fileID: 608402654}
   - component: {fileID: 608402657}
   - component: {fileID: 608402656}
-  - component: {fileID: 608402655}
   m_Layer: 0
   m_Name: Pole
   m_TagString: Untagged
@@ -1704,27 +1704,6 @@ Transform:
   - {fileID: 308776773}
   m_Father: {fileID: 2071862799}
   m_LocalEulerAnglesHint: {x: 11.92, y: 0, z: 0}
---- !u!65 &608402655
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608402653}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &608402656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5939,6 +5918,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 641401456}
   fishMarker: {fileID: 346033137}
   rod: {fileID: 285242425}
+  bait: {fileID: 425963349}
   fish: {fileID: 0}
   fishPool:
   - {fileID: 11400000, guid: 15fde4a575746fa4384a746372ece11d, type: 2}
@@ -5995,7 +5975,6 @@ Transform:
   m_Children:
   - {fileID: 1475002911}
   - {fileID: 608402654}
-  - {fileID: 425963350}
   m_Father: {fileID: 285242423}
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
 --- !u!95 &2071862800
@@ -6009,7 +5988,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e4ae47eed3db8ca488d3f3ebf9bb86e4, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

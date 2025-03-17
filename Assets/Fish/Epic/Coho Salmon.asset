@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Coho Salmon
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _model: {fileID: 410752134479444999, guid: 6752e626a0c3ab14a9e9a9029cb2e78b, type: 3}
   ItemName: Coho Salmon
   minMaxWeight: {x: 3, y: 10}
   weight: 0
   rarity: 4
+  score: 0
   Chance: 7.5

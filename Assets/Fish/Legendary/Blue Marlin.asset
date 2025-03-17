@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Blue Marlin
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _model: {fileID: 410752134479444999, guid: 6752e626a0c3ab14a9e9a9029cb2e78b, type: 3}
   ItemName: Blue Marlin
   minMaxWeight: {x: 90, y: 700}
   weight: 0
   rarity: 5
+  score: 0
   Chance: 3.5

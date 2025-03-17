@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Item : ScriptableObject
 {
     [SerializeField] private Image _image; public Image GetImage() {  return _image; }
+    [SerializeField] private GameObject _model; public GameObject GetModel() {  return _model; }
 
     [SerializeField] private string ItemName = string.Empty; public string GetItemName() {  return ItemName; }
 

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Largemouth Bass
   m_EditorClassIdentifier: 
   _image: {fileID: 0}
+  _model: {fileID: 410752134479444999, guid: 6752e626a0c3ab14a9e9a9029cb2e78b, type: 3}
   ItemName: Largemouth Bass
   minMaxWeight: {x: 0.5, y: 5}
   weight: 0
   rarity: 1
+  score: 0
   Chance: 40
