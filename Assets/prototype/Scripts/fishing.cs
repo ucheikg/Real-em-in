@@ -23,7 +23,7 @@ public class fishing : MonoBehaviour
 
     void Start()
     {
-        barMaterial.color = Color.cyan;
+        barMaterial.color = Color.green;
         progressMaterial.color = Color.red;
     }
 
@@ -35,10 +35,10 @@ public class fishing : MonoBehaviour
 
         if (onFish == true) 
         {
+            progressMaterial.color = Color.green;
             if (progress < 100f)
             {
                 progress += gainProgressSpeed * Time.deltaTime;
-                progressMaterial.color = Color.cyan;
             }
             else
             {
@@ -57,10 +57,10 @@ public class fishing : MonoBehaviour
         }
         else 
         {
-            if(progress > 0)
+            progressMaterial.color = Color.red;
+            if (progress > 0)
             {
                 progress -= lossProgressSpeed * Time.deltaTime;
-                progressMaterial.color = Color.red;
                 
             }
             else
