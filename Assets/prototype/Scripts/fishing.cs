@@ -9,7 +9,9 @@ public class fishing : MonoBehaviour
     [SerializeField] private Fish_Marker fishMarker;
     [SerializeField] private rodScript rod;
     [SerializeField] private Slider progressBar;
-    
+    [SerializeField] private Material barMaterial;
+    [SerializeField] private Material progressMaterial;
+
     [SerializeField] private float progress = 50.0f;
     [SerializeField] private float gainProgressSpeed = 10f;
     [SerializeField] private float lossProgressSpeed = 10f;
@@ -21,7 +23,8 @@ public class fishing : MonoBehaviour
 
     void Start()
     {
-
+        barMaterial.color = Color.cyan;
+        progressMaterial.color = Color.red;
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class fishing : MonoBehaviour
             if (progress < 100f)
             {
                 progress += gainProgressSpeed * Time.deltaTime;
+                progressMaterial.color = Color.cyan;
             }
             else
             {
@@ -56,6 +60,8 @@ public class fishing : MonoBehaviour
             if(progress > 0)
             {
                 progress -= lossProgressSpeed * Time.deltaTime;
+                progressMaterial.color = Color.red;
+                
             }
             else
             {
@@ -107,6 +113,7 @@ public class fishing : MonoBehaviour
         if (collision.gameObject.CompareTag("fish"))
         {
             onFish = true;
+            barMaterial.color = Color.yellow;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -114,6 +121,7 @@ public class fishing : MonoBehaviour
         if (collision.gameObject.CompareTag("fish"))
         {
             onFish = false;
+            barMaterial.color = Color.green;
         }
     }
 
