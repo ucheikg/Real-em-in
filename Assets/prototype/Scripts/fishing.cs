@@ -44,6 +44,7 @@ public class fishing : MonoBehaviour
             {
                 // Caught fish
                 gameplaySettings.addScoreToPlayer();
+                
                 progress = 100f;
                 
                 onFish = false;
@@ -53,6 +54,7 @@ public class fishing : MonoBehaviour
                 rod.canCharge = true;
                 rod.lockBait = true;
                 progress = 50;
+                gameplaySettings.clearFishCaught();
             }
         }
         else 
@@ -75,6 +77,7 @@ public class fishing : MonoBehaviour
                 rod.canCharge = true;
                 rod.lockBait = true;
                 progress = 50;
+                gameplaySettings.clearFishCaught();
             }
         }
 

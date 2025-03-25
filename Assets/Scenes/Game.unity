@@ -809,8 +809,8 @@ MonoBehaviour:
   baitOrigin: {fileID: 1475002911}
   powerGauge: {fileID: 1024800572}
   charge: 0
-  maxCharge: 100
-  chargeSpeed: 100
+  maxCharge: 70
+  chargeSpeed: 50
   canCharge: 1
   lockBait: 1
 --- !u!1 &308776772

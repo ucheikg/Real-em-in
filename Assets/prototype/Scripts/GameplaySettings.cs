@@ -83,6 +83,8 @@ public class GameplaySettings : MonoBehaviour
     {
         
         fish = null;
+        Destroy(f.gameObject);
+        Debug.Log("Destroyed");
     }
 
     private void SortPoolByChance() // sort fish by chance
@@ -94,6 +96,8 @@ public class GameplaySettings : MonoBehaviour
     {
         int currentScore = gameSettings.GetPlayerCurrentScore();
         int fishScore = fish.GetScore();
+
+        
 
         gameSettings.InventoryAddItem(fish);
         gameSettings.SetPlayerCurrentScore(currentScore + fishScore);
