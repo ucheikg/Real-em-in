@@ -11,6 +11,7 @@ public class script : MonoBehaviour
     void Start()
     {
         gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
+        Score.text = "Score: " + 0;
     }
 
     // Update is called once per frame
