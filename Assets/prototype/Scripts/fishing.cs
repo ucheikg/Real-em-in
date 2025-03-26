@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI.Table;
 
 public class fishing : MonoBehaviour
 {
+    InputAction miniGameControl = new InputAction("minigameControls", InputActionType.Button);
+    
+
+
     [SerializeField] private GameObject minigame;
     [SerializeField] private Fish_Marker fishMarker;
     [SerializeField] private rodScript rod;
@@ -25,6 +30,9 @@ public class fishing : MonoBehaviour
     {
         barMaterial.color = Color.green;
         progressMaterial.color = Color.red;
+
+        miniGameControl.AddBinding("<Keyboard>/space", groups: "KeyboardMouse");
+        miniGameControl.AddBinding("<Gamepad>/buttonSouth", groups: "Gamepad");
     }
 
     // Update is called once per frame
@@ -86,7 +94,7 @@ public class fishing : MonoBehaviour
         
         
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButton("Fire1"))
         {
             if (transform.localPosition.y < 146)
             {
