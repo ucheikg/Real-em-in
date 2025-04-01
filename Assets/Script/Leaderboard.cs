@@ -14,7 +14,29 @@ public class Leaderboard : MonoBehaviour
         if (name != "")
         {
             int score = gameSettings.GetPlayerCurrentScore();
-            SetLeaderboardEntry(name, score);
+            LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, ((msg) => {
+                bool playerInLeaderboard = false;
+                for (int i = 0; i < msg.Length; i++)
+                {
+                    if (msg[i].Username == name)
+                    {
+                        playerInLeaderboard = true;
+                        if (msg[i].Score <= score)
+                        {
+                            SetLeaderboardEntry(name, score);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                if (!playerInLeaderboard)
+                {
+                    SetLeaderboardEntry(name, score);
+                }
+            }));
+            
         }
         
         UpdateLeaderboard();
