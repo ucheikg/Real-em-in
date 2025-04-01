@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 76d6be3b6308d2549aefd0674b6ae34f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3586,6 +3586,8 @@ MonoBehaviour:
   fishMarker: {fileID: 0}
   rod: {fileID: 0}
   progressBar: {fileID: 2145375514}
+  barMaterial: {fileID: 0}
+  progressMaterial: {fileID: 0}
   progress: 50
   gainProgressSpeed: 10
   lossProgressSpeed: 10
@@ -5446,6 +5448,104 @@ MonoBehaviour:
   PauseMenuUI: {fileID: 7397597}
   quitMenuUI: {fileID: 40015611}
   controlsMenuUI: {fileID: 659403320}
+--- !u!1001 &1721881409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 205.71
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 205.71
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 205.71
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.67442626
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.870987
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.72209823
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6917906
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -87.544
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_Name
+      value: bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716841016775820327, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716841016775820327, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716841016775820327, guid: 7edb57cd69355f847945813e90009e82,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 618fea4b6499f9a49bdd0dcee2da8252, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7edb57cd69355f847945813e90009e82, type: 3}
 --- !u!1 &1824613064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6151,3 +6251,4 @@ SceneRoots:
   - {fileID: 23546183}
   - {fileID: 184410363}
   - {fileID: 2073270655}
+  - {fileID: 1721881409}
