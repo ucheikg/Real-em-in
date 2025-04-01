@@ -6,9 +6,17 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-
+    private GameSettings gameSettings;
     private void Start()
     {
+        gameSettings = GameObject.Find("[GameSettings]").GetComponent<GameSettings>();
+        string name = gameSettings.GetPlayerName();
+        if (name != "")
+        {
+            int score = gameSettings.GetPlayerCurrentScore();
+            SetLeaderboardEntry(name, score);
+        }
+        
         UpdateLeaderboard();
     }
 

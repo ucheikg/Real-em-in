@@ -101,6 +101,7 @@ public class GameplaySettings : MonoBehaviour
 
         gameSettings.InventoryAddItem(fish);
         gameSettings.SetPlayerCurrentScore(currentScore + fishScore);
+        Debug.Log(gameSettings.GetPlayerCurrentScore());
     }
 
 }
