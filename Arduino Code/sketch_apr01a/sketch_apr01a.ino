@@ -55,6 +55,8 @@ void loop() {
 //
 //  Serial.println(digitalRead(swPin));
 
+  Serial.println(digitalRead(clkPin));
+
   if (!Serial.available()) {
     return;
   }

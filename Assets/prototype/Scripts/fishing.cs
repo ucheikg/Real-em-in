@@ -91,43 +91,17 @@ public class fishing : MonoBehaviour
             }
         }
 
-        
 
-        
-        
 
-        if (Input.GetButton("Fire1"))
-        {
-            if (transform.localPosition.y < 146)
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (playerSpeed * Time.deltaTime), transform.localPosition.z);
-            }
-            else
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, 145, transform.localPosition.z);
-            }
-        }
-        else
-        {
-            if(transform.localPosition.y > -149)
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - (playerSpeed * Time.deltaTime), transform.localPosition.z);
-            }
-            else
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, -148, transform.localPosition.z);
-            }
-            
-        }
-        
-        
-        if(delay > 60)
+
+
+        if (delay > 60)
         {
             delay++;
         }
         else
         {
-            if (SerialComManager.instance.GetDataFromArduino("a") == "1")
+            if (Input.GetButton("Fire1") || SerialComManager.instance.GetDataFromArduino("a") == "1")
             {
                 if (transform.localPosition.y < 146)
                 {
@@ -148,8 +122,8 @@ public class fishing : MonoBehaviour
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, -148, transform.localPosition.z);
                 }
-            }
 
+            }
         }
 
      }
