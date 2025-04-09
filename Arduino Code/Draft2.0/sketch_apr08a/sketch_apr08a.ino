@@ -2,22 +2,23 @@ const int clkPin = 5;
 const int dtPin = 4;
 const int swPin = 3;
 char handshake = 'x';
-int trend = 0;
-bool spinning = false;
+int threshold = 90;
 int counter = 0;
-int lastvalue = 0;
+int counterMin = 0;
+int counterMax = 100;
+bool spinning = false;
 int lastClkState;
 unsigned long lastDebounceTime = 0;
 const unsigned long debounceDelay = 5;
 unsigned long lastDecrementTime = 0;
 void setup() {
   Serial.begin(9600);
-  pinMode(clkPin, INPUT);
-  pinMode(dtPin, INPUT);
+  pinMode(clkPin, INPUT_PULLUP);
+  pinMode(dtPin, INPUT_PULLUP);
   pinMode(swPin, INPUT_PULLUP);
   lastClkState = digitalRead(clkPin);
 
-  bool online = false;
+   bool online = false;
   while (!online) {
     while (!Serial.available()) {
     }
@@ -36,27 +37,26 @@ void loop() {
   if (currentClkState != lastClkState && millis() - lastDebounceTime > debounceDelay) {
     lastDebounceTime = millis();
     if (digitalRead(dtPin) != currentClkState) {
-      counter++; // Only increments on clockwise rotation
+      if (counter < counterMax) {
+        counter++;
+        spinning = true;
+      }
     }
   }
   lastClkState = currentClkState;
   // Automatically decrease the counter every second
   if (millis() - lastDecrementTime >= 75) {
     lastDecrementTime = millis();
-    counter--;
-  }
-
-  if (counter != lastvalue) {
-    trend = counter - lastvalue;
-    if (trend > 0) {
-      spinning = true;
-    } else {
+    if (counterMax >= counter > counterMin && counter != 0) {
+      counter--;
       spinning = false;
     }
-
   }
-  lastvalue = counter;
-  
+  if (counter > threshold){
+    spinning = true;
+  } else if (counter < threshold){
+    spinning = false;
+  }
 
   if (!Serial.available()) {
     return;
@@ -66,7 +66,7 @@ void loop() {
 
   //If we receive 'a' then I know that I want to read the analogue sensor so send back that data
   if (inp == 'a') {
-    Serial.println(digitalRead(spinning));
+    Serial.println(spinning);
   }
 
 }
