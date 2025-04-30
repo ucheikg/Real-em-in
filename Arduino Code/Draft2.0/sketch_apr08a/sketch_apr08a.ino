@@ -118,9 +118,25 @@ void loop() {
   //otherwise read the serial
   char inp = Serial.read();
 
-  //If we receive 'a' then I know that I want to read the analogue sensor so send back that data
+  //If we receive 'a' then I know that I want to read the analogue sensor so send back that data in the form of a bool  
   if (inp == 'a') {
     Serial.println(spinning);
+  }
+
+  if (inp == 'b') {
+    Serial.println(up);
+  }
+
+  if (inp == 'c') {
+    Serial.println(down);
+  }
+
+  if (inp == 'd') {
+    Serial.println(right);
+  }
+
+  if (inp == 'e') {
+    Serial.println(left);
   }
 
 }

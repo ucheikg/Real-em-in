@@ -744,7 +744,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 425963350}
   - {fileID: 2071862799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 5.857, y: 2.49, z: 0.65}
@@ -838,7 +837,7 @@ Transform:
   m_GameObject: {fileID: 308776772}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000029802319, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4579999, z: 0.37999725}
+  m_LocalPosition: {x: 0.00156, y: 0.03672, z: -0.00016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1241,12 +1240,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425963349}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.08715579, y: -0, z: -0, w: 0.9961948}
-  m_LocalPosition: {x: 2.53, y: 1.5623382, z: 4.2241344}
-  m_LocalScale: {x: 0.4, y: 0.40000004, z: 0.40000004}
+  m_LocalRotation: {x: 0.0000000074505797, y: 0.0000000018352645, z: 3.9428488e-10,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 1.3999949}
+  m_LocalScale: {x: 0.40000004, y: 0.40000007, z: 0.40000004}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 285242423}
+  m_Father: {fileID: 2071862799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &425963351
 SphereCollider:
@@ -6668,6 +6668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071862799}
   - component: {fileID: 2071862800}
+  - component: {fileID: 2071862801}
   m_Layer: 0
   m_Name: FishingRod
   m_TagString: Untagged
@@ -6690,6 +6691,7 @@ Transform:
   m_Children:
   - {fileID: 1475002911}
   - {fileID: 608402654}
+  - {fileID: 425963350}
   m_Father: {fileID: 285242423}
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
 --- !u!95 &2071862800
@@ -6714,6 +6716,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2071862801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071862798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6a156846919d647ae3110e16a1ed2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishingRod: {fileID: 2071862799}
+  rotationSpeed: 10
 --- !u!1 &2146259943
 GameObject:
   m_ObjectHideFlags: 0
