@@ -8,8 +8,8 @@ using GamesAcademy.SerialPackage;
 public class fishing : MonoBehaviour
 {
     InputAction miniGameControl = new InputAction("minigameControls", InputActionType.Button);
-    
 
+    
 
     [SerializeField] private GameObject minigame;
     [SerializeField] private Fish_Marker fishMarker;
@@ -103,6 +103,13 @@ public class fishing : MonoBehaviour
         {
             if (Input.GetButton("Fire1") || SerialComManager.instance.GetDataFromArduino("a") == "1")
             {
+                gameObject.GetComponent<AudioSource>().loop = true;
+                if(gameObject.GetComponent<AudioSource>().isPlaying == false)
+                {
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+
+
                 if (transform.localPosition.y < 386)
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (playerSpeed * Time.deltaTime), transform.localPosition.z);
@@ -114,6 +121,10 @@ public class fishing : MonoBehaviour
             }
             else
             {
+                if (gameObject.GetComponent<AudioSource>().isPlaying == true)
+                {
+                    gameObject.GetComponent<AudioSource>().Stop();
+                }
                 if (transform.localPosition.y > -386)
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - (playerSpeed * Time.deltaTime), transform.localPosition.z);

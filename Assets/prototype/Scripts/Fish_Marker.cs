@@ -33,7 +33,7 @@ public class Fish_Marker : MonoBehaviour
         {
             randPos = Random.Range(Bottom.position.y + 10, Top.position.y - 10);
             Debug.Log(t);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(t);
             StartCoroutine(moveMarker(Random.Range(1, 5)));
         }
         else

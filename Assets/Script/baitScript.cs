@@ -3,14 +3,16 @@ using UnityEngine;
 
 public class baitScript : MonoBehaviour
 {
-
+    
     [SerializeField] private GameplaySettings gameplaySettings;
+    
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.layer == 4)
         {
             float t = UnityEngine.Random.Range(5,10);
+            
             StartCoroutine(waitForFish(t));
         }
     }
