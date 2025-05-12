@@ -5,7 +5,7 @@ public class Fish_Marker : MonoBehaviour
 {
     [SerializeField] private Transform Top;
     [SerializeField] private Transform Bottom;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 7f;
     [SerializeField] private float randPos = 0;
 
     public bool canMove = false;
@@ -33,7 +33,7 @@ public class Fish_Marker : MonoBehaviour
         {
             randPos = Random.Range(Bottom.position.y + 10, Top.position.y - 10);
             Debug.Log(t);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(t);
             StartCoroutine(moveMarker(Random.Range(1, 5)));
         }
         else

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.falmouth.serial-unity-package": {
+      "version": "https://github.falmouth.ac.uk/Games-Academy/Unity-Serial-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "d2976d645b38bde23f5983c7f740f754531ed6f0"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI.Table;
+using GamesAcademy.SerialPackage;
 
 public class fishing : MonoBehaviour
 {
     InputAction miniGameControl = new InputAction("minigameControls", InputActionType.Button);
-    
 
+    
 
     [SerializeField] private GameObject minigame;
     [SerializeField] private Fish_Marker fishMarker;
@@ -16,6 +17,7 @@ public class fishing : MonoBehaviour
     [SerializeField] private Slider progressBar;
     [SerializeField] private Material barMaterial;
     [SerializeField] private Material progressMaterial;
+    private int delay = 0;
 
     [SerializeField] private float progress = 50.0f;
     [SerializeField] private float gainProgressSpeed = 10f;
@@ -89,35 +91,53 @@ public class fishing : MonoBehaviour
             }
         }
 
-        
 
-        
-        
 
-        if (Input.GetButton("Fire1"))
+
+
+        if (delay > 60)
         {
-            if (transform.localPosition.y < 146)
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (playerSpeed * Time.deltaTime), transform.localPosition.z);
-            }
-            else
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, 145, transform.localPosition.z);
-            }
+            delay++;
         }
         else
         {
-            if(transform.localPosition.y > -149)
+            if (Input.GetButton("Fire1") || SerialComManager.instance.GetDataFromArduino("a") == "1")
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - (playerSpeed * Time.deltaTime), transform.localPosition.z);
+                gameObject.GetComponent<AudioSource>().loop = true;
+                if(gameObject.GetComponent<AudioSource>().isPlaying == false)
+                {
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+
+
+                if (transform.localPosition.y < 386)
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + (playerSpeed * Time.deltaTime), transform.localPosition.z);
+                }
+                else
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x, 386, transform.localPosition.z);
+                }
             }
             else
             {
-                transform.localPosition = new Vector3(transform.localPosition.x, -148, transform.localPosition.z);
+                if (gameObject.GetComponent<AudioSource>().isPlaying == true)
+                {
+                    gameObject.GetComponent<AudioSource>().Stop();
+                }
+                if (transform.localPosition.y > -386)
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - (playerSpeed * Time.deltaTime), transform.localPosition.z);
+                }
+                else
+                {
+                    transform.localPosition = new Vector3(transform.localPosition.x, -386, transform.localPosition.z);
+                }
+
             }
-            
         }
-    }
+
+     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
