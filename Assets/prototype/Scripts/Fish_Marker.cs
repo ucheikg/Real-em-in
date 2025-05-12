@@ -5,7 +5,7 @@ public class Fish_Marker : MonoBehaviour
 {
     [SerializeField] private Transform Top;
     [SerializeField] private Transform Bottom;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 7f;
     [SerializeField] private float randPos = 0;
 
     public bool canMove = false;
