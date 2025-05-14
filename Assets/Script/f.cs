@@ -33,7 +33,7 @@ public class f : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = true;
+            walkPointSet = false;
     }
 
     private void searchWalkPoint()

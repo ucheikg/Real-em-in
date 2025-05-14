@@ -25,6 +25,14 @@ public class Paning : MonoBehaviour
         {
             StartCoroutine(Left());
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            arrow.Rotate(0, 0, -rotationSpeed * Time.deltaTime);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            arrow.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+        }
 
     }
 
